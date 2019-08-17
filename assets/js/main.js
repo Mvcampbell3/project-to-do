@@ -61,13 +61,13 @@ function tasksToPage(orderedTasks, taskList) {
     one.forEach(task => {
       const newTask = document.createElement("div");
       newTask.classList = "newTask";
-      const taskContent = document.createElement("h5");
+      const taskContent = document.createElement("p");
       taskContent.classList = task.completed ? "textContent completed" : "textContent notComplete";
       taskContent.dataset.completed = task.completed;
       taskContent.textContent = task.task;
       const taskComplete = document.createElement("button");
-      taskComplete.textContent = task.completed ? "Done" : "To Do";
-      taskComplete.classList = task.completed ? "completeBtn done" : "completeBtn todo";
+      taskComplete.innerHTML = task.completed ? '<i class="awe fas fa-undo"></i>' : '<i class="awe fas fa-check"></i>';
+      taskComplete.classList = task.completed ? "taskBtn done" : "taskBtn todo";
       taskComplete.addEventListener("click", function() {
         const rightTask = taskList.filter(original => original.task === task.task);
         rightTask[0].completed = !rightTask[0].completed;
@@ -78,8 +78,8 @@ function tasksToPage(orderedTasks, taskList) {
           .catch(err => console.log(err))
       })
       const delButton = document.createElement("button");
-      delButton.classList = "delBtn";
-      delButton.textContent = "X";
+      delButton.classList = "taskBtn delBtn";
+      delButton.innerHTML = '<i class="awe far fa-window-close"></i>';
       delButton.addEventListener("click", function() {
         const rightTask = taskList.filter(original => original.task === task.task);
         taskList.splice(taskList.indexOf(rightTask[0]), 1);
@@ -88,7 +88,7 @@ function tasksToPage(orderedTasks, taskList) {
           .catch(err => console.log(err));
       })
 
-      newTask.append(taskContent, taskComplete, delButton);
+      newTask.append(taskComplete, taskContent, delButton);
       newGroup.append(newTask);
     })
     outputArea.append(newGroup);
