@@ -1,0 +1,31 @@
+{
+  "name": "project-to-do",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mvcampbell3/project-to-do.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mvcampbell3/project-to-do/issues"
+  },
+  "homepage": "https://github.com/Mvcampbell3/project-to-do#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
