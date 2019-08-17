@@ -58,16 +58,19 @@ function tasksToPage(orderedTasks, taskList) {
       const taskComplete = document.createElement("button");
       taskComplete.textContent = task.completed ? "Check": "Nope";
       taskComplete.classList = task.completed ? "completeBtn done": "completeBtn todo";
-      // taskComplete.addEventListener("click", function() {
-      //   console.log("this is going to be a pain in the ass");
-      //   const rightTask = taskList.filter(original => original.task === task.task);
-      //   console.log(rightTask);
-      //   rightTask[0].completed = !rightTask[0].completed;
-      //   console.log(taskList);
-      //   Promise.all([setTasks(taskList)])
-      //     .then(result => getTasks())
-      //     .catch(err => console.log(err))
-      // })
+      taskComplete.addEventListener("click", function() {
+        console.log("this is going to be a pain in the ass");
+        const rightTask = taskList.filter(original => original.task === task.task);
+        console.log(rightTask);
+        rightTask[0].completed = !rightTask[0].completed;
+        console.log(taskList);
+        Promise.all([setTasks(taskList)])
+          .then(result => {
+            outputArea.innerHTML = ""
+            getTasks()
+          })
+          .catch(err => console.log(err))
+      })
 
       newTask.append(taskContent, taskComplete);
       newGroup.append(newTask);
@@ -81,3 +84,5 @@ getTasks();
 formTask.addEventListener("submit", function(e) {
   e.preventDefault();
 })
+
+// setTasks(testTasks)
