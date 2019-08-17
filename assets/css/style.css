@@ -1,10 +1,10 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.background{
+.background {
   min-height: 100vh;
   width: 100vw;
   max-width: 100vw;
@@ -12,8 +12,26 @@
   background-color: #333;
 }
 
-.container{
+.container {
   width: 90%;
   margin: 1em auto 0 auto;
+}
+
+.outputArea {
+  margin: 1em 0 2em 0;
+  padding: 0 0 1em 0;
+  background-color: rgb(2, 63, 60);
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  border-radius: 15px;
+}
+
+.newGroup {
+  width: 70%;
+  min-width: 350px;
   background-color: white;
+  border-radius: 15px;
+  margin-top: 1em;
+  padding: 20px;
 }
