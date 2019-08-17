@@ -9,7 +9,7 @@ app.use(express.json());
 
 const dbase = "project-to-do";
 
-app.use(express.static(path.join(__dirname, "public"), { extenstions: ["html"] }));
+app.use(express.static(path.join(__dirname, "public"), { extensions: ['html', 'htm'] }));
 
 app.use(routes);
 
