@@ -16,9 +16,17 @@ function getTasks() {
   outputArea.innerHTML = "";
   const taskList = JSON.parse(localStorage.getItem("tasks-projects-to-do"));
 
-  if (taskList === null) {
+  if (taskList === null || taskList.length === 0) {
     outputArea.style.display = "none";
-    return console.log("There is no task list");
+
+    projectSelect.innerHTML = "";
+
+    const startOption = document.createElement("option");
+    startOption.value = "default";
+    startOption.textContent = "Pick Existing";
+    projectSelect.append(startOption);
+    console.log("There is no task list");
+    return localStorage.setItem("tasks-projects-to-do", JSON.stringify([]))
   } else {
     outputArea.style.display = "grid";
   }
@@ -128,18 +136,18 @@ formTask.addEventListener("submit", function(e) {
     } else {
       // make object and return function call
       // or set to local var and then call func after if else
-      sendObj = {group: taskType.value.trim(), task: taskContent.value.trim(), completed: false};
+      sendObj = { group: taskType.value.trim(), task: taskContent.value.trim(), completed: false };
     }
   } else {
     // taskSelect & taskContent
     if (taskContent === "") {
       return alert("Not enough info, taskContent, taskSelect")
     } else {
-      sendObj = {group: taskSelect, task: taskContent.value.trim(), completed: false}
+      sendObj = { group: taskSelect, task: taskContent.value.trim(), completed: false }
     }
   }
   updateTaskList(sendObj)
-  
+
 })
 
 function updateTaskList(task) {
@@ -155,6 +163,6 @@ function updateTaskList(task) {
       getTasks()
     })
     .catch(err => console.log(err));
-} 
+}
 
 // setTasks(testTasks)

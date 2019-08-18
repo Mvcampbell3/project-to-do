@@ -56,16 +56,19 @@ input[type="submit"]:focus{
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: whitesmoke;
+  color: #aaa;
+  font-size: 15px;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: whitesmoke;
+  color: #aaa;
+  font-size: 15px;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-  color: whitesmoke;
+  color: #aaa;
+  font-size: 15px;
 }
 
 .inputGroup label{
