@@ -13,15 +13,21 @@
 <body>
   <div class="background">
     <div class="container">
-      <h1 class="mainTitle">Project To-Do's</h1>
+      <h1 class="mainTitle">To-Do's</h1>
       <div class="todoBody">
         <form class="formTask" id="formTask">
           <div class="inputGroup">
-            <label for="type">Project Name</label>
+            <label for="type">Enter Project Name</label>
             <input type="text" name="type" id="typeInput" autocomplete="off" placeholder="Project...">
           </div>
           <div class="inputGroup">
-            <label for="content">Task</label>
+            <label for="selectProject">Or Select Existing Project</label>
+            <select name="projectSelect" id="projectSelect" class="projectSelect">
+
+            </select>
+          </div>
+          <div class="inputGroup">
+            <label for="content">Task Description</label>
             <input type="text" name="content" id="contentInput" autocomplete="off" placeholder="Task...">
           </div>
           <div class="inputGroup">

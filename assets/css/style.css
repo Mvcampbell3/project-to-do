@@ -4,12 +4,20 @@
   padding: 0;
 }
 
+button:focus{
+  outline: none;
+}
+
+input[type="submit"]:focus{
+  outline: none;
+}
+
 .background {
   min-height: 100vh;
   width: 100vw;
   max-width: 100vw;
   overflow: auto;
-  background-color: dodgerblue;
+  background-color: rgb(34, 139, 95);
 }
 
 .container {
@@ -28,7 +36,7 @@
 .formTask {
   margin: 1em auto 1em auto;
   width: 350px;
-  height: 250px;
+  height: 314.4px;
   padding: 20px;
   background-color: #666;
   border-radius: 15px;
@@ -42,6 +50,22 @@
   width: 300px;
   font-size: 20px;
   padding: 5px;
+  background-color: rgb(2, 63, 60);
+  color: white;
+  border: 1px black solid;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: whitesmoke;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: whitesmoke;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: whitesmoke;
 }
 
 .inputGroup label{
@@ -49,6 +73,10 @@
   color: white;
   margin-bottom: .5em;
   font-size: 18px;
+}
+
+.projectSelect{
+  padding: 5px;
 }
 
 .addBtn{
@@ -63,6 +91,7 @@
 .outputArea {
   width: 70%;
   min-width: 370px;
+  min-height: 314.4px;
   height: fit-content;
   margin: 1em 1em 2em auto;
   padding: 0 0 1em 0;
@@ -81,12 +110,28 @@
 
 .newGroup {
   width: 90%;
-  margin: auto;
   min-width: 350px;
   background-color: white;
   border-radius: 15px;
   margin-top: 1em;
   padding: 20px;
+}
+
+.topHolder{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 10px;
+  padding-right: 20px;
+  background-color: #ddd;
+}
+
+.groupDelBtn{
+  background-color: darkred;
+  color: white;
+  border:1px black solid;
+  border-radius: 5px;
+  padding: 2px 5px;
 }
 
 .newGroupTitle{
@@ -111,8 +156,21 @@
   display: block;
   padding: 1px;
   width: fit-content;
+  border: none;
 }
 
+.delBtn{
+  color: darkred;
+  background-color: white;
+}
+
+.done{
+  background-color: yellow;
+}
+
+.todo{
+  background-color: green;
+}
 
 .awe{
   font-size: 16px;
