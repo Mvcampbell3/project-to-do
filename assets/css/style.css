@@ -25,12 +25,18 @@ input[type="submit"]:focus{
   border-radius: 15px;
   padding: 2em;
   margin: 1em auto 0 auto;
-  background-color: #333;
+  background-color: white;
 }
 
 .mainTitle {
   text-align: center;
-  color: white;
+  color: black;
+}
+
+.todoBody{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 350px auto;
 }
 
 .formTask {
@@ -38,8 +44,9 @@ input[type="submit"]:focus{
   width: 350px;
   height: 314.4px;
   padding: 20px;
-  background-color: #666;
+  background-color: white;
   border-radius: 15px;
+  border: .5px darkred solid;
 }
 
 .inputGroup {
@@ -55,25 +62,27 @@ input[type="submit"]:focus{
   border: 1px black solid;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+/* Change placholder style */
+
+::placeholder {
   color: #aaa;
   font-size: 15px;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder {
   color: #aaa;
   font-size: 15px;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder {
   color: #aaa;
   font-size: 15px;
 }
 
 .inputGroup label{
   display: block;
-  color: white;
+  color: black;
   margin-bottom: .5em;
   font-size: 18px;
 }
@@ -105,12 +114,6 @@ input[type="submit"]:focus{
   border-radius: 15px;
 }
 
-.todoBody{
-  width: 100%;
-  display: grid;
-  grid-template-columns: 350px auto;
-}
-
 .newGroup {
   width: 90%;
   min-width: 350px;
@@ -118,6 +121,18 @@ input[type="submit"]:focus{
   border-radius: 15px;
   margin-top: 1em;
   padding: 20px;
+}
+
+.firstLoad{
+  opacity: 0;
+  animation-name: firstTime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes firstTime{
+  0% {opacity: 0}
+  100% {opacity: 1}
 }
 
 .topHolder{

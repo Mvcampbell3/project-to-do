@@ -1,6 +1,7 @@
 const formTask = document.getElementById("formTask");
 const outputArea = document.getElementById("outputArea");
 const projectSelect = document.getElementById("projectSelect")
+let firstLoad = true;
 
 const testTasks = [
   { group: "Project X", task: "Finish this part", completed: false },
@@ -65,6 +66,7 @@ function tasksToPage(orderedTasks, taskList) {
     // create div and title elements
     const newGroup = document.createElement("div");
     newGroup.classList = "newGroup";
+    newGroup.classList = firstLoad ? "newGroup firstLoad" : "newGroup";
     const newTitle = document.createElement("h2");
     newTitle.classList = "newGroupTitle";
     newTitle.textContent = one[0].group;
@@ -73,6 +75,7 @@ function tasksToPage(orderedTasks, taskList) {
     newGroupDelete.textContent = "remove";
     newGroupDelete.addEventListener("click", function() {
       const remainingList = taskList.filter(tasks => tasks.group !== one[0].group);
+      firstLoad = false;
       Promise.all([setTasks(remainingList)])
         .then(result => getTasks())
         .catch(err => console.log(err));
@@ -94,6 +97,7 @@ function tasksToPage(orderedTasks, taskList) {
       taskComplete.innerHTML = task.completed ? '<i class="awe fas fa-undo"></i>' : '<i class="awe fas fa-check"></i>';
       taskComplete.classList = task.completed ? "taskBtn done" : "taskBtn todo";
       taskComplete.addEventListener("click", function() {
+        firstLoad = false;
         const rightTask = taskList.filter(original => original.task === task.task);
         rightTask[0].completed = !rightTask[0].completed;
         Promise.all([setTasks(taskList)])
@@ -124,6 +128,7 @@ getTasks();
 
 formTask.addEventListener("submit", function(e) {
   e.preventDefault();
+  firstLoad = false;
   const taskType = document.getElementById("typeInput");
   const taskContent = document.getElementById("contentInput");
   const taskSelect = projectSelect.value;
