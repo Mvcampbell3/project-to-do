@@ -33,13 +33,13 @@ input[type="submit"]:focus{
   color: black;
 }
 
-.todoBody{
+/* .todoBody{
   width: 100%;
   display: grid;
   grid-template-columns: 350px auto;
-}
+} */
 
-.formTask {
+/* .formTask {
   margin: 1em auto 1em auto;
   width: 350px;
   height: 314.4px;
@@ -47,7 +47,7 @@ input[type="submit"]:focus{
   background-color: white;
   border-radius: 15px;
   border: .5px darkred solid;
-}
+} */
 
 .inputGroup {
   margin-top: 1em;

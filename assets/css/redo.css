@@ -1,0 +1,21 @@
+.newTask{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45px auto 45px; 
+  grid-column-gap: 5px;
+  background-color: lightgoldenrodyellow;
+  align-items: center;
+}
+
+.newColTop{
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskContent{
+  margin-bottom: 0;
+}
+
+.line-through{
+  text-decoration: line-through;
+}
