@@ -12,20 +12,28 @@
   <title>Project To Do</title>
 </head>
 
-<body>
+<body class="bg-secondary">
   <div class="container">
-    <h1 class="mainTitle">Project To Do</h1>
-    <div class="addProject mb-2">
-      <div class="input-group row align-items-center">
-        <label class="col-2 mb-0 text-center"for="addProject">Add Project</label>
-        <input class="col-6 mr-2" type="text" name="addProject" id="addProject" autocomplete="off">
-        <button class="addProjectBtn btn btn-info" id="addProjectBtn">+</button>
+    <div class="row justify-content-center">
+      <div class="card mt-3 mb-3 col-lg-7 col-md-8 col-sm-12">
+        <h3 class="card-title text-center mt-1">Project To Do</h3>
+        <div class="card-body">
+          <div class="addProject">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-info text-white">Add Project</span>
+              </div>
+              <input class="form-control" type="text" name="addProject" id="addProject" autocomplete="off">
+              <div class="input-group-append">
+                <button class="addProjectBtn btn btn-info" id="addProjectBtn">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="projectArea">
-      <div class="row" id="projectPlace">
 
-      </div>
+    <div class="row justify-content-center" id="projectPlace">
     </div>
   </div>
   <script src="assets/js/redo.js"></script>

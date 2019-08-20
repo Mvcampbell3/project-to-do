@@ -1,4 +1,4 @@
-const className = "col-lg-6 col-md-6 col-sm-12 border p-2 mb-2";
+const className = "col-lg-8 col-md-10 col-sm-12 border p-2 mb-2 bg-white";
 
 const projectPlace = document.getElementById("projectPlace");
 
@@ -9,12 +9,20 @@ function getTaskLoad() {
     const newCol = document.createElement("div");
     newCol.classList = className;
     const newColTop = document.createElement("div");
-    newColTop.classList = "newColTop";
+    newColTop.classList = "newColTop mb-3";
     const projectTitle = document.createElement("h4");
     projectTitle.textContent = one;
     const removeProject = document.createElement("button");
     removeProject.classList = "removeProject btn btn-danger";
     removeProject.textContent = "remove";
+    removeProject.dataset.which_project = one;
+    removeProject.addEventListener("click", function() {
+      const oldTaskList = JSON.parse(localStorage.getItem("tasks-projects-to-do"));
+      const remaingProjects = oldTaskList.projects.filter(oldTaskPro => oldTaskPro !== one);
+      const remaingTasks = oldTaskList.tasks.filter(oldTasksTasks => oldTasksTasks.project !== one);
+      console.log(remaingProjects, remaingTasks);
+      setThenGrab({ projects: remaingProjects, tasks: remaingTasks });
+    })
     newColTop.append(projectTitle, removeProject);
     newCol.append(newColTop)
     const allTasks = taskList.tasks.filter(task => task.project === one);
@@ -48,12 +56,20 @@ function getTaskLoad() {
       newTask.append(newCompleteBtn, newTaskContent, taskDelBtn);
       newCol.append(newTask);
     })
+
+    const addTaskPre = document.createElement("div");
+    addTaskPre.classList = "input-group-prepend";
+    const addTaskApp = document.createElement("div");
+    addTaskApp.classList = "input-group-append";
+
     const addTaskForm = document.createElement("div");
-    addTaskForm.classList = "input-group";
-    const addTaskLabel = document.createElement("label");
-    addTaskLabel.textContent = "Add Task";
+    addTaskForm.classList = "input-group mt-3";
+    const addTaskSpan = document.createElement("span");
+    addTaskSpan.textContent = "Add Task";
+    addTaskSpan.classList = "input-group-text text-white bg-info";
     const addTaskInput = document.createElement("input");
     addTaskInput.type = "text";
+    addTaskInput.classList = "form-control"
     addTaskInput.dataset.which_project = one;
     const addTaskBtn = document.createElement("button");
     addTaskBtn.classList = "addTaskBtn btn btn-primary";
@@ -61,18 +77,20 @@ function getTaskLoad() {
     addTaskBtn.dataset.which_project = one;
     addTaskBtn.addEventListener("click", function() {
       console.log(this.dataset.which_project);
-      console.log(this.previousElementSibling.value)
-      const inputValue = this.previousElementSibling.value.trim();
+      console.log(this.parentElement.previousElementSibling.value)
+      const inputValue = this.parentElement.previousElementSibling.value.trim();
       if (inputValue === "") {
         console.log("nothing there");
       } else {
         console.log(inputValue);
         const oldTasks = JSON.parse(localStorage.getItem("tasks-projects-to-do"));
-        oldTasks.tasks.push({project: this.dataset.which_project, task: inputValue, completed: false});
+        oldTasks.tasks.push({ project: this.dataset.which_project, task: inputValue, completed: false });
         setThenGrab(oldTasks);
       }
     })
-    addTaskForm.append(addTaskLabel, addTaskInput, addTaskBtn)
+    addTaskPre.append(addTaskSpan);
+    addTaskApp.append(addTaskBtn);
+    addTaskForm.append(addTaskPre, addTaskInput, addTaskApp)
     newCol.append(addTaskForm)
     projectPlace.append(newCol)
   })
