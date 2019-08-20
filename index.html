@@ -5,45 +5,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/00fdae5f8b.js"></script>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <title>Project To-Dos</title>
+  <link rel="stylesheet" href="assets/css/redo.css">
+  <title>Project To Do</title>
 </head>
 
-<body>
-  <div class="background">
-    <div class="container">
-      <h1 class="mainTitle">To-Do's</h1>
-      <div class="todoBody">
-        <!-- <form class="formTask" id="formTask">
-          <div class="inputGroup">
-            <label for="selectProject">Select Existing Project</label>
-            <select name="projectSelect" id="projectSelect" class="projectSelect">
-
-            </select>
+<body class="bg-secondary">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="card mt-3 mb-3 col-lg-7 col-md-8 col-sm-12">
+        <h3 class="card-title text-center mt-1">Project To Do</h3>
+        <div class="card-body">
+          <div class="addProject">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-info text-white">Add Project</span>
+              </div>
+              <input class="form-control" type="text" name="addProject" id="addProject" autocomplete="off">
+              <div class="input-group-append">
+                <button class="addProjectBtn btn btn-info" id="addProjectBtn">+</button>
+              </div>
+            </div>
           </div>
-          <div class="inputGroup">
-            <label for="type">Or Add New Project</label>
-            <input type="text" name="type" id="typeInput" autocomplete="off" placeholder="Project...">
-          </div>
-
-          <div class="inputGroup">
-            <label for="content">Task Description</label>
-            <input type="text" name="content" id="contentInput" autocomplete="off" placeholder="Task...">
-          </div>
-          <div class="inputGroup">
-            <input type="submit" value="Add Task" class="addBtn">
-          </div>
-        </form> -->
-        <div class="outputArea" id="outputArea">
-
         </div>
       </div>
+    </div>
 
+    <div class="row justify-content-center" id="projectPlace">
     </div>
   </div>
-
-  <!-- <script src="assets/js/main.js"></script> -->
+  <script src="assets/js/redo.js"></script>
 </body>
 
 </html>

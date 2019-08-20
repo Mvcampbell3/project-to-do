@@ -1,9 +1,13 @@
 const className = "col-lg-8 col-md-10 col-sm-12 border p-2 mb-2 bg-white";
-
 const projectPlace = document.getElementById("projectPlace");
+const addProject = document.getElementById("addProject");
+const addProjectBtn = document.getElementById("addProjectBtn");
 
 function getTaskLoad() {
   const taskList = JSON.parse(localStorage.getItem("tasks-projects-to-do"));
+  if (taskList === null) {
+    return setThenGrab({ projects: [], tasks: [] })
+  }
   console.log(taskList);
   taskList.projects.forEach(one => {
     const newCol = document.createElement("div");
@@ -118,6 +122,18 @@ function setThenGrab(taskList) {
     .then(result => getTaskLoad())
     .catch(err => console.log(err));
 }
+
+addProjectBtn.addEventListener("click", function() {
+  const oldTasks = JSON.parse(localStorage.getItem("tasks-projects-to-do"));
+  const newProject = addProject.value.trim();
+  console.log(newProject);
+  if (newProject !== "") {
+    oldTasks.projects.push(newProject);
+    setThenGrab(oldTasks);
+    addProject.value = "";
+  }
+
+})
 
 getTaskLoad();
 // setTestList();
